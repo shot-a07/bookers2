@@ -1,0 +1,31 @@
+<div class="container">
+ <div class="row">
+   <%= render 'books/list', user: @user, book: @books %>
+  <div class="col-md-8 offset-md-1">
+    <h2>Users</h2>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>image</th>
+          
+          <th>name</th>
+        </tr>
+        <tr>
+           <% @users.each do |user| %>
+          <td>
+            <%= attachment_image_tag user, :profile_image, :fill,100,100,format: 'jpeg', fallback: "no_image.jpg" %>
+          </td>
+          <td>
+            <%= user.name %>
+          </td>
+          <td>
+            <%= link_to "Show", "/users/#{user.id}" %>
+          </td>
+          <td></td>
+         
+        </tr>
+        <% end %>
+        
+      </tbody>
+    </table>
+  </div>

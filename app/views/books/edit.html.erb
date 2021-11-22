@@ -1,0 +1,31 @@
+<main>
+  <div class="container">
+    <div class="row">
+       <h1>Editing Book</h1>
+    </div>
+<!-- form_with部分 -->
+      <div class="row"><%= form_with model:@book, local: true do |f| %>
+        <%= f.label :Title %>
+      </div>
+      <div class="row">
+      
+        <%= f.text_field :title %>
+      </div>
+      <div class="row">
+        <%= f.label :Opinion %>
+      </div>
+      <div class="row">
+        <%= f.text_area :body %>
+      </div>
+      <div class="row">
+        <%= f.submit 'Update Book', class: "btn btn-success" %>
+        <% end %>
+      </div>
+      <div>
+    <%= link_to "Show", book_path(@book.id) %>
+      |
+     <%= link_to "Back", books_path %>
+    </div>
+   </div>
+ </div>
+</main>
