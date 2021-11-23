@@ -1,8 +1,20 @@
 <div class="container">
  <div class="row">
-   <%= render 'books/list', user: @user, book: @books %>
+   <%= render 'books/list', user: @user, book: @book %>
   <div class="col-md-8 offset-md-1">
     <h2>Users</h2>
+    <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @user.errors.count %> errors prohibited this obj from being saved:</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+   <% end %>
+  
+  
     <table class="table">
       <tbody>
         <tr>
