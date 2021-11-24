@@ -4,20 +4,21 @@
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
+    <link rel="stylesheet" href="stylesheet/books.scss">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      <nav class="navbar navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
+          
+          <div><%= link_to "Bookers", "/", class: "navbar-brand" %></div>
       
-        <div><%= link_to "Bookers", "/" %></div>
-        
-             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
-             <div class="navbar-collapse collapse" id="navbarNavDropdown">
+            
+             
              <ul class="navbar-nav ml-auto ">
              <% if user_signed_in? %>
               <span><%= link_to "Home", user_path(current_user), class: 'fas fa-home nav-link text-light' %></span>
@@ -41,14 +42,14 @@
        </div>
       </nav>
     </header>
-    
+    <main>
     <div>
      <p id="notice">
        <%= flash[:notice] %>
      </p>
-      <%= yield %>
     </div>
-  
+      <%= yield %>
+    </main>
     <footer>
       <div class="container mt-5">
         <div class="row">
